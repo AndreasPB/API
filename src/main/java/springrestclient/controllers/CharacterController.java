@@ -25,17 +25,17 @@ public class CharacterController {
     }
 
     @PostMapping("/character")
-    public String formPost(Model model, ServerWebExchange serverWebExchange){
+    public String formPost(Model model){
 
-        MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
+        // MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
 
-        String charName = map.get("charName").get(0);
+        // String charName = map.get("charName").get(0);
 
         // log.debug("Received Limit value: " + limit);
         //default if null or zero
 
 
-        model.addAttribute("characters", apiService.getCharacter(charName));
+        model.addAttribute("character", apiService.getCharacter("mooand"));
 
         return "character";
     }
