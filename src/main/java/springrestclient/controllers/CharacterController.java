@@ -44,7 +44,7 @@ public class CharacterController {
         */
 
 
-        model.addAttribute("character", apiService.getCharacter("mooand"));
+        model.addAttribute("character", apiService.getCharacter("draenor","mooand"));
 
         return "character_summary";
     }

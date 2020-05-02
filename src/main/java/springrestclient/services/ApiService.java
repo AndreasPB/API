@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ApiService {
 
-    Character getCharacter(String charName);
+    Character getCharacter(String realm, String charName);
 }

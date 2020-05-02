@@ -33,7 +33,7 @@ class ApiServiceImplTest {
 
 
 
-        Character character = apiService.getCharacter("mooand");
+        Character character = apiService.getCharacter("draenor", "mooand");
 
         assertNotNull(character);
     }

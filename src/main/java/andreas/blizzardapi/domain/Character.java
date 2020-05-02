@@ -17,21 +17,21 @@ public class Character implements Serializable
     private Gender gender;
     private Faction faction;
     private Race race;
-    private CharacterClass characterClass;
-    private ActiveSpec activeSpec;
+    private CharacterClass character_class;
+    private ActiveSpec active_spec;
     private Realm realm;
     private Guild guild;
     private Integer level;
     private Integer experience;
-    private Integer achievementPoints;
+    private Integer achievement_points;
     private Achievements achievements;
     private Titles titles;
     private PvpSummary pvpSummary;
     private Encounters encounters;
     private Media media;
     private Integer lastLoginTimestamp;
-    private Integer averageItemLevel;
-    private Integer equippedItemLevel;
+    private Integer average_item_level;
+    private Integer equipped_item_level;
     private Specializations specializations;
     private Statistics statistics;
     private MythicKeystoneProfile mythicKeystoneProfile;
@@ -94,20 +94,20 @@ public class Character implements Serializable
         this.race = race;
     }
 
-    public CharacterClass getCharacterClass() {
-        return characterClass;
+    public CharacterClass getCharacter_class() {
+        return character_class;
     }
 
-    public void setCharacterClass(CharacterClass characterClass) {
-        this.characterClass = characterClass;
+    public void setCharacter_class(CharacterClass character_class) {
+        this.character_class = character_class;
     }
 
-    public ActiveSpec getActiveSpec() {
-        return activeSpec;
+    public ActiveSpec getActive_spec() {
+        return active_spec;
     }
 
-    public void setActiveSpec(ActiveSpec activeSpec) {
-        this.activeSpec = activeSpec;
+    public void setActive_spec(ActiveSpec active_spec) {
+        this.active_spec = active_spec;
     }
 
     public Realm getRealm() {
@@ -142,12 +142,12 @@ public class Character implements Serializable
         this.experience = experience;
     }
 
-    public Integer getAchievementPoints() {
-        return achievementPoints;
+    public Integer getAchievement_points() {
+        return achievement_points;
     }
 
-    public void setAchievementPoints(Integer achievementPoints) {
-        this.achievementPoints = achievementPoints;
+    public void setAchievement_points(Integer achievement_points) {
+        this.achievement_points = achievement_points;
     }
 
     public Achievements getAchievements() {
@@ -198,20 +198,20 @@ public class Character implements Serializable
         this.lastLoginTimestamp = lastLoginTimestamp;
     }
 
-    public Integer getAverageItemLevel() {
-        return averageItemLevel;
+    public Integer getAverage_item_level() {
+        return average_item_level;
     }
 
-    public void setAverageItemLevel(Integer averageItemLevel) {
-        this.averageItemLevel = averageItemLevel;
+    public void setAverage_item_level(Integer average_item_level) {
+        this.average_item_level = average_item_level;
     }
 
-    public Integer getEquippedItemLevel() {
-        return equippedItemLevel;
+    public Integer getEquipped_item_level() {
+        return equipped_item_level;
     }
 
-    public void setEquippedItemLevel(Integer equippedItemLevel) {
-        this.equippedItemLevel = equippedItemLevel;
+    public void setEquipped_item_level(Integer equipped_item_level) {
+        this.equipped_item_level = equipped_item_level;
     }
 
     public Specializations getSpecializations() {

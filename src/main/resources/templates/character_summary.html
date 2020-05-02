@@ -10,42 +10,36 @@
 <!--/*@thymesVar id="users" type="java.util.List"*/-->
 <!--/*@thymesVar id="user" type="guru.springframework.api.domain.User"*/-->
 <div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
+    <h1>Data fra API</h1>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover ">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Navn</th>
+                    <th>Race</th>
+                    <th>Class</th>
+                    <th>Spec</th>
+                    <th>Guild</th>
+                    <th>Realm</th>
+                    <th>Average</th>
+                    <th>Equipped</th>
 
-                <div class="panel-heading">
-                    <h1 class="panel-title">Data fra API</h1>
-                </div>
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover ">
-                            <thead class="thead-inverse">
-                            <tr>
-                                <th>Navn</th>
-                                <th>Race</th>
-                                <th>Guild</th>
-                            </tr>
-                            </thead>
-                            <tr th:remove="all">
-                                <td>Joe</td>
-                                <td>Buck</td>
-                                <td>Male</td>
-                            </tr>
-                            <tr th:remove="all">
-                                <td>Joe</td>
-                                <td>Buck</td>
-                                <td>Male</td>
-                            </tr>
-                            <tr>
-                                <td th:text="${character.name}">Rapand</td>
-                                <td th:text="${character.race.name}">Rapand</td>
-                                <td th:text="${character.guild.name}">Rapand</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
+                </tr>
+                </thead>
+                <tr>
+                    <td th:text="${character.name}"></td>
+                    <td th:text="${character.race.name}"></td>
+                    <td th:text="${character.character_class.name}"></td>
+                    <td th:text="${character.active_spec.name}"></td>
+                    <td th:text="${character.guild.name}"></td>
+                    <td th:text="${character.realm.name}"></td>
+                    <td th:text="${character.average_item_level}"></td>
+                    <td th:text="${character.equipped_item_level}"></td>
+
+                </tr>
+            </table>
         </div>
     </div>
 </div>
