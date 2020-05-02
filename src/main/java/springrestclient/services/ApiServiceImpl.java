@@ -18,7 +18,7 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public Character getCharacter(String charName) {
 
-        Character character = restTemplate.getForObject("https://eu.api.blizzard.com/profile/wow/character/draenor/mooand?namespace=profile-eu&locale=en_US&access_token=US2mPQgUmCjV7GK479V12zwe2HgnGlYpr5", Character.class);
+        Character character = restTemplate.getForObject("https://eu.api.blizzard.com/profile/wow/character/draenor/"+ charName + "?namespace=profile-eu&locale=en_US&access_token=US6b2BMDDdJxMsLM2i690QXC4UxlYI8Zx7", Character.class);
         return character;
     }
 }

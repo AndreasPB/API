@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.server.ServerWebExchange;
 import springrestclient.services.ApiService;
 
@@ -34,9 +36,16 @@ public class CharacterController {
         // log.debug("Received Limit value: " + limit);
         //default if null or zero
 
+        /*
+        if(charName == null){
+            // log.debug("Setting limit to default of 10");
+            charName = "mooand";
+        }
+        */
+
 
         model.addAttribute("character", apiService.getCharacter("mooand"));
 
-        return "character";
+        return "character_summary";
     }
 }
