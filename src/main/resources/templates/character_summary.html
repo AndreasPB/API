@@ -7,10 +7,13 @@
     <div th:insert="fragments/header"></div>
 </head>
 <body>
+
+<div th:insert="fragments/top_menu"></div>
+
 <!--/*@thymesVar id="users" type="java.util.List"*/-->
 <!--/*@thymesVar id="user" type="guru.springframework.api.domain.User"*/-->
-<div class="container-fluid" style="margin-top: 20px">
-    <h1>Data fra API</h1>
+<div class="container-lg" style="margin-top: 20px">
+    <h1>Character Summary</h1>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-hover ">
@@ -25,10 +28,10 @@
                     <th>Average</th>
                     <th>Equipped</th>
 
-
                 </tr>
                 </thead>
                 <tr>
+
                     <td th:text="${character.name}"></td>
                     <td th:text="${character.race.name}"></td>
                     <td th:text="${character.character_class.name}"></td>
@@ -40,9 +43,82 @@
 
                 </tr>
             </table>
+            <h2>Gear</h2>
+            <table class="table table-hover ">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Slot</th>
+                    <th>Name</th>
+                    <th>ilvl</th>
+                    <th>Spell(s)</th>
+                    <th>Corruption</th>
+
+                </tr>
+                </thead>
+
+                <tr th:each="equipped : ${gear.equipped_items}">
+                    <td th:text="${equipped.slot.name}"></td>
+
+
+                    <span th:if="${equipped.quality.type == 'POOR'}">
+                        <td th:text="${equipped.name}" style="color: #9d9d9d"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'COMMON'}">
+                        <td th:text="${equipped.name}" style="color: #ffffff"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'UNCOMMON'}">
+                        <td th:text="${equipped.name}" style="color: #1eff00"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'RARE'}">
+                        <td th:text="${equipped.name}" style="color: #0070dd"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'EPIC'}">
+                        <td th:text="${equipped.name}" style="color: #a335ee"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'LEGENDARY'}">
+                        <td th:text="${equipped.name}" style="color: #ff8000"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'ARTIFACT'}">
+                        <td th:text="${equipped.name}" style="color: #e6cc80"></td>
+                    </span>
+                    <span th:if="${equipped.quality.type == 'HEIRLOOM'}">
+                        <td th:text="${equipped.name}" style="color: #00ccff"></td>
+                    </span>
+
+
+                    <td th:text="${equipped.level.value}"></td>
+                    <td>
+                        <div th:each="spells: ${equipped.spells}">
+                            <span th:text="${spells.spell.name}"></span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div th:each="stats : ${equipped.stats}">
+                            <span th:if="${stats.type.type == 'CORRUPTION'}">
+                                +
+                                <span th:text="${stats.value}"></span>
+                            </span>
+                        </div>
+                    </td>
+                    </span>
+
+                </tr>
+            </table>
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+
+        if ("${eq}") {
+
+            $(this).css('color', 'red');
+        }
+
+        console.log("ready!");
+    });
+</script>
 </body>
 </html>

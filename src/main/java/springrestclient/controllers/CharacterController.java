@@ -1,14 +1,12 @@
 package springrestclient.controllers;
 
-import andreas.blizzardapi.domain.Character;
-import andreas.blizzardapi.domain.Realm;
+import andreas.blizzardapi.domain.gear.Gear;
+import andreas.blizzardapi.domain.statistics.Statistics;
+import andreas.blizzardapi.domain.summary.Character;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.Server;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.servlet.ModelAndView;
 import springrestclient.services.ApiService;
 
@@ -34,8 +32,12 @@ public class CharacterController {
         ModelAndView mav = new ModelAndView("character_summary");
 
         Character character = apiService.getCharacter(realm, name);
-        mav.addObject("character", character);
+        Gear gear = apiService.getGear(realm, name);
+//        Statistics statistics = apiService.getStatistics(realm, name);
 
+        mav.addObject("character", character);
+        mav.addObject("gear", gear);
+//        mav.addObject("statistics", statistics);
 
         return mav;
     }

@@ -1,17 +1,14 @@
 package springrestclient.services;
 
-import andreas.blizzardapi.domain.Character;
-import andreas.blizzardapi.domain.CharacterData;
+import andreas.blizzardapi.domain.gear.Gear;
+import andreas.blizzardapi.domain.statistics.Statistics;
+import andreas.blizzardapi.domain.summary.Character;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,7 +31,12 @@ class ApiServiceImplTest {
 
 
         Character character = apiService.getCharacter("draenor", "mooand");
+        Gear gear = apiService.getGear("draenor", "mooand");
+//        Statistics statistics = apiService.getStatistics("draenor", "mooand");
+
 
         assertNotNull(character);
+        assertNotNull(gear);
+//        assertNotNull(statistics);
     }
 }

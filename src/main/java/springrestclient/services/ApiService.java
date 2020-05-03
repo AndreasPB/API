@@ -1,11 +1,14 @@
 package springrestclient.services;
 
-import andreas.blizzardapi.domain.Character;
-import reactor.core.publisher.Mono;
+import andreas.blizzardapi.domain.gear.Gear;
+import andreas.blizzardapi.domain.statistics.Statistics;
+import andreas.blizzardapi.domain.summary.Character;
 
 public interface ApiService {
 
     Character getCharacter(String realm, String name);
 
-    // Mono<Character> getCharacter(Mono<String> charName);
+    Gear getGear(String realm, String name);
+
+//    Statistics getStatistics(String realm, String name);/
 }
