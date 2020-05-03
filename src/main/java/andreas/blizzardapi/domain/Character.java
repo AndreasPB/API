@@ -46,6 +46,11 @@ public class Character implements Serializable
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private final static long serialVersionUID = -8143134024977172733L;
 
+    public String getRealmName() {
+        return realm.getName();
+    }
+
+
     public Links getLinks() {
         return links;
     }

@@ -1,14 +1,15 @@
 package springrestclient.controllers;
 
+import andreas.blizzardapi.domain.Character;
+import andreas.blizzardapi.domain.Realm;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.Server;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.servlet.ModelAndView;
 import springrestclient.services.ApiService;
 
 @Slf4j
@@ -26,26 +27,29 @@ public class CharacterController {
         return "index";
     }
 
-    @PostMapping("/character")
-    public String formPost(Model model){
 
-        // MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
+    @GetMapping(value = "/character/{realm}/{name}")
+    public ModelAndView successLogin(@PathVariable String name, @PathVariable String realm, Model model)
+    {
+        ModelAndView mav = new ModelAndView("character_summary");
 
-        // String charName = map.get("charName").get(0);
+        Character character = apiService.getCharacter(realm, name);
+        mav.addObject("character", character);
 
-        // log.debug("Received Limit value: " + limit);
-        //default if null or zero
 
-        /*
-        if(charName == null){
-            // log.debug("Setting limit to default of 10");
-            charName = "mooand";
+        return mav;
+    }
+
+    @RequestMapping(value= "/character", method = RequestMethod.POST)
+    public String Login(@ModelAttribute("character") Character character)
+    {
+        try
+        {
+            return "redirect:/character/" + character.getRealmName() + "/" + character.getName();
+
+        } catch(Exception e)
+        {
+            return "redirect:/";
         }
-        */
-
-
-        model.addAttribute("character", apiService.getCharacter("draenor","mooand"));
-
-        return "character_summary";
     }
 }
