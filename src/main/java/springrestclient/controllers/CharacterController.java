@@ -4,6 +4,7 @@ import andreas.blizzardapi.domain.gear.Gear;
 import andreas.blizzardapi.domain.statistics.Statistics;
 import andreas.blizzardapi.domain.summary.Character;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,21 @@ public class CharacterController {
         } catch(Exception e)
         {
             return "redirect:/";
+        }
+    }
+
+    @Controller
+    public class MyErrorController implements ErrorController {
+
+        @RequestMapping("/error")
+        public String handleError() {
+            //do something like logging
+            return "redirect:/";
+        }
+
+        @Override
+        public String getErrorPath() {
+            return "/redirect:/";
         }
     }
 }
