@@ -23,18 +23,14 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public Character getCharacter(String realm, String name) {
-
-        Character character = restTemplate.getForObject(profileApi + realm + "/" + name +
+        return restTemplate.getForObject(profileApi + realm + "/" + name +
                 "?namespace=profile-eu&locale=en_US" + apiToken, Character.class);
-        return character;
     }
 
     @Override
     public Gear getGear(String realm, String name) {
-        Gear gear = restTemplate.getForObject(profileApi + realm + "/" + name + "/equipment" +
+        return restTemplate.getForObject(profileApi + realm + "/" + name + "/equipment" +
                 "?namespace=profile-eu&locale=en_US" + apiToken, Gear.class);
-
-        return gear;
     }
 
 //

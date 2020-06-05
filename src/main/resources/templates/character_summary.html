@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Char</title>
+    <title>Summary</title>
 
     <div th:insert="fragments/header"></div>
 </head>
@@ -13,7 +13,7 @@
 <!--/*@thymesVar id="users" type="java.util.List"*/-->
 <!--/*@thymesVar id="user" type="guru.springframework.api.domain.User"*/-->
 <div class="container-lg" style="margin-top: 20px">
-    <h1>Character Summary</h1>
+    <h2>Summary</h2>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-hover ">
@@ -48,8 +48,8 @@
                 <thead class="thead-inverse">
                 <tr>
                     <th>Slot</th>
-                    <th>Name</th>
                     <th>ilvl</th>
+                    <th>Name</th>
                     <th>Spell(s)</th>
                     <th>Corruption</th>
 
@@ -57,8 +57,11 @@
                 </thead>
 
                 <tr th:each="equipped : ${gear.equipped_items}">
+
+                    <td th:text="${equipped.item.id}"></td>
                     <td th:text="${equipped.slot.name}"></td>
 
+                    <td th:text="${equipped.level.value}"></td>
 
                     <span th:if="${equipped.quality.type == 'POOR'}">
                         <td th:text="${equipped.name}" style="color: #9d9d9d"></td>
@@ -86,7 +89,6 @@
                     </span>
 
 
-                    <td th:text="${equipped.level.value}"></td>
                     <td>
                         <div th:each="spells: ${equipped.spells}">
                             <span th:text="${spells.spell.name}"></span>
