@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Summary</title>
-
     <div th:insert="fragments/header"></div>
 </head>
 <body>
-
 <div th:insert="fragments/top_menu"></div>
 
-<!--/*@thymesVar id="users" type="java.util.List"*/-->
-<!--/*@thymesVar id="user" type="guru.springframework.api.domain.User"*/-->
 <div class="container-lg" style="margin-top: 20px">
     <h2>Summary</h2>
     <div class="panel-body">
@@ -52,15 +48,12 @@
                     <th>Name</th>
                     <th>Spell(s)</th>
                     <th>Corruption</th>
-
                 </tr>
                 </thead>
 
                 <tr th:each="equipped : ${gear.equipped_items}">
-
                     <td th:text="${equipped.item.id}"></td>
                     <td th:text="${equipped.slot.name}"></td>
-
                     <td th:text="${equipped.level.value}"></td>
 
                     <span th:if="${equipped.quality.type == 'POOR'}">
